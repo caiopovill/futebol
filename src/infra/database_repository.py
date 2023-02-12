@@ -6,7 +6,12 @@ class DatabaseRepository(DatabaseRepositoryInterface):
     
     @classmethod
     def insert_jogos(cls, data: Dict) -> None:
-        query = """
+        query_check = """
+
+        
+        """
+        
+        query_insert = """
             INSERT INTO jogos
                 (home_team, away_team, date,stage, posse_bola_home,
                 posse_bola_away, passes_home, passes_away,
@@ -19,8 +24,8 @@ class DatabaseRepository(DatabaseRepositoryInterface):
             VALUES
                 (%s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-
+        print(data['home_team'], data['away_team'])
         cursor = DatabaseConnector.connection.cursor()
-        cursor.execute(query, list(data.values()))
+        cursor.execute(query_insert, list(data.values()))
 
         DatabaseConnector.connection.commit()

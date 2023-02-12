@@ -1,14 +1,12 @@
-from src.stages.extract.extract_html import ExtractHtml
+from src.stages.extract.extract_html import ExtractHtml, HtmlCollector
 from src.stages.transform.transform_raw_data import TransformRawData
 from src.stages.load.load_data import LoadData
-from src.drivers.http_requester import HttpRequesterLinks, HttpRequesterStats
-from src.drivers.html_collector import HtmlCollector
 from src.infra.database_connector import DatabaseConnector
 from src.infra.database_repository import DatabaseRepository
 
 class MainPipeline:
     def __init__(self) -> None:
-        self.__extract_html = ExtractHtml(HttpRequesterLinks(), HttpRequesterStats(), HtmlCollector())
+        self.__extract_html = ExtractHtml(HtmlCollector())
         self.__transform_raw_data = TransformRawData()
         self.__load_data = LoadData(DatabaseRepository())
         

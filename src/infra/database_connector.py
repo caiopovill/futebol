@@ -19,7 +19,7 @@ class DatabaseConnector:
             'DATABASE_USER':os.environ.get("DATABASE_USER"),
             'DATABASE_PASSWORD':os.environ.get("DATABASE_PASSWORD")
         }
-
+        print(con_params_local)
         db_connection = psycopg2.connect(
             host=con_params_local['DATABASE_HOST'],
             port=con_params_local['DATABASE_PORT'],

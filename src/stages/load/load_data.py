@@ -7,10 +7,8 @@ class LoadData:
         
     def load(self,transformed_data_contract: TransformContract) -> None:
         try:
-            load_content = transformed_data_contract.load_content
-            print(load_content)
+            load_content = transformed_data_contract
             for data in load_content:
-                print(data)
                 self.__repository.insert_jogos(data)
         except Exception as exception:
             raise LoadError(str(exception)) from exception

@@ -9,11 +9,11 @@ def test_transform():
     transformed_data_contract  = transform_raw_data.transform(extract_contract_mock)
     print(transformed_data_contract)
     assert isinstance(transformed_data_contract, TransformContract)
-    assert 'home_team' in transformed_data_contract.load_content[0]
-    assert 'away_team' in transformed_data_contract.load_content[0]
-    assert 'passes_corretos_home' in transformed_data_contract.load_content[0]
-    assert 'posse_bola_away' in transformed_data_contract.load_content[0]
-    assert 'passes_away' in transformed_data_contract.load_content[0]
+    assert 'home_team' in transformed_data_contract[0]
+    assert 'away_team' in transformed_data_contract[0]
+    assert 'passes_corretos_home' in transformed_data_contract[0]
+    assert 'posse_bola_away' in transformed_data_contract[0]
+    assert 'passes_away' in transformed_data_contract[0]
 
 
 def test_transform_error():
